@@ -1,0 +1,10 @@
+.playerSection {
+    border: "1px solid #ccc";
+    border-radius: 15px;
+    padding: "1rem";
+    display: "flex";
+    flex-direction: "column";
+    gap: ".5rem";
+    width: 50%;
+    margin: 10px auto;
+}
