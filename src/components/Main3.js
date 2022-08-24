@@ -9,19 +9,11 @@ const Main3 = () => {
     const [maxBuy, setMaxBuy] = useState();
     const [takeAfter, setTakeAfter] = useState();
 
-    const btnStyle = {
-        padding: "5px 15px",
-        backgroundColor: "skyblue",
-        color: "white",
-        border: "none",
-        cursor: "pointer",
-        borderRadius: "10px",
-    };
-
     const partner_id = "39190";
     const secret_key = "dbc52c17ffd1f43615b3c5125d8ed3eb";
 
-    var cancelled = false;
+    // var cancelled = false;
+    const [cancelled, setCancelled] = useState(false);
 
     function longRunningFunction() {
         // if (cancelled) {
@@ -38,19 +30,45 @@ const Main3 = () => {
             return hash;
         }
 
-        axios
-            .get(
-                `https://dsfut.net/api/22/ps/${partner_id}/${timestamp}/${signature()}?min_buy=${minBuy}&max_buy=${maxBuy}&take_after=${takeAfter}`
-            )
-            .then((res) => {
-                if (res.data.error) {
-                    console.log(res.data.error);
-                } else {
-                    console.log(res.data.player);
-                    setPlayer(res.data.player);
-                    cancelled = true;
-                }
-            });
+        if (minBuy && maxBuy && takeAfter) {
+            axios
+                .get(
+                    `https://dsfut.net/api/22/ps/${partner_id}/${timestamp}/${signature()}?min_buy=${minBuy}&max_buy=${maxBuy}&take_after=${takeAfter}`
+                )
+                .then((res) => {
+                    if (res.data.error) {
+                        console.log(res.data.error);
+                    } else {
+                        console.log(res.data.player);
+                        setPlayer(res.data.player);
+                        cancelled = true;
+                    }
+                });
+        } else if (
+            (minBuy && maxBuy && !takeAfter) ||
+            (minBuy && !maxBuy && takeAfter) ||
+            (!minBuy && maxBuy && takeAfter) ||
+            (minBuy && !maxBuy && !takeAfter) ||
+            (!minBuy && !maxBuy && takeAfter) ||
+            (!minBuy && maxBuy && !takeAfter)
+        ) {
+            alert("Please fill out all the inputs");
+            return;
+        } else if (!minBuy && !maxBuy && !takeAfter) {
+            axios
+                .get(
+                    `https://dsfut.net/api/22/ps/${partner_id}/${timestamp}/${signature()}`
+                )
+                .then((res) => {
+                    if (res.data.error) {
+                        console.log(res.data.error);
+                    } else {
+                        console.log(res.data.player);
+                        setPlayer(res.data.player);
+                        cancelled = true;
+                    }
+                });
+        }
 
         if (!cancelled) {
             // release control, so that handlers can be called, and continue in 10ms
@@ -62,30 +80,33 @@ const Main3 = () => {
         <div>
             <input
                 value={minBuy}
-                onChange={(eve) => setMinBuy(eve.value.target)}
+                onChange={(eve) => setMinBuy(eve.target.value)}
                 placeholder="minBuy..."
+                type="text"
             />
             <br />
             <br />
             <input
                 value={maxBuy}
-                onChange={(eve) => setMaxBuy(eve.value.target)}
+                onChange={(eve) => setMaxBuy(eve.target.value)}
                 placeholder="maxBuy..."
+                type="text"
             />
             <br />
             <br />
             <input
                 value={takeAfter}
-                onChange={(eve) => setTakeAfter(eve.value.target)}
+                onChange={(eve) => setTakeAfter(eve.target.value)}
                 placeholder="takeAfter..."
+                type="text"
             />
             <br />
             <br />
             <br />
             <button
-                style={btnStyle}
+                className={styles.btn}
                 onClick={() => {
-                    cancelled = false;
+                    setCancelled(false);
                     longRunningFunction();
                 }}>
                 Start!
@@ -93,7 +114,7 @@ const Main3 = () => {
             <br />
             <br />
             <br />
-            <button style={btnStyle} onClick={() => (cancelled = true)}>
+            <button className={styles.btn} onClick={() => setCancelled(true)}>
                 stop!
             </button>
             <br />
