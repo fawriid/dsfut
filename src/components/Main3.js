@@ -77,75 +77,77 @@ const Main3 = () => {
     }
 
     return (
-        <div>
-            <div className={styles.parametersSec}>
-                <div className={styles.inputs}>
-                    <input
-                        value={minBuy}
-                        onChange={(eve) => setMinBuy(eve.target.value)}
-                        placeholder="minBuy..."
-                        type="text"
-                    />
-                    <input
-                        value={maxBuy}
-                        onChange={(eve) => setMaxBuy(eve.target.value)}
-                        placeholder="maxBuy..."
-                        type="text"
-                    />
-                    <input
-                        value={takeAfter}
-                        onChange={(eve) => setTakeAfter(eve.target.value)}
-                        placeholder="takeAfter..."
-                        type="text"
-                    />
+        <div className={styles.background}>
+            <div className={styles.content}>
+                <div className={styles.parametersSec}>
+                    <div className={styles.inputs}>
+                        <input
+                            value={minBuy}
+                            onChange={(eve) => setMinBuy(eve.target.value)}
+                            placeholder="minBuy..."
+                            type="text"
+                        />
+                        <input
+                            value={maxBuy}
+                            onChange={(eve) => setMaxBuy(eve.target.value)}
+                            placeholder="maxBuy..."
+                            type="text"
+                        />
+                        <input
+                            value={takeAfter}
+                            onChange={(eve) => setTakeAfter(eve.target.value)}
+                            placeholder="takeAfter..."
+                            type="text"
+                        />
+                    </div>
+                    <div className={styles.buttons}>
+                        <button
+                            className={styles.btn}
+                            onClick={() => {
+                                if (!cancelled) {
+                                    return;
+                                }
+                                cancelled = false;
+                                catchingPlayer();
+                            }}>
+                            Start!
+                        </button>
+                        <button
+                            className={styles.btn}
+                            onClick={() => (cancelled = true)}>
+                            Stop!
+                        </button>
+                    </div>
                 </div>
-                <div className={styles.buttons}>
-                    <button
-                        className={styles.btn}
-                        onClick={() => {
-                            if (!cancelled) {
-                                return;
-                            }
-                            cancelled = false;
-                            catchingPlayer();
-                        }}>
-                        Start!
-                    </button>
-                    <button
-                        className={styles.btn}
-                        onClick={() => (cancelled = true)}>
-                        Stop!
-                    </button>
-                </div>
+                {player && (
+                    <div className={styles.playerSection}>
+                        <div className={styles.playerSectionDetail}>
+                            <h4>Player Name:</h4>
+                            <h5>{player.name}</h5>
+                        </div>
+                        <div className={styles.playerSectionDetail}>
+                            <h4>Start Price:</h4>
+                            <h5>{player.startPrice}</h5>
+                        </div>
+                        <div className={styles.playerSectionDetail}>
+                            <h4>Buy Now Price:</h4>
+                            <h5>{player.buyNowPrice}</h5>
+                        </div>
+                        <div className={styles.playerSectionDetail}>
+                            <h4>Player Rating:</h4>
+                            <h5>{player.rating}</h5>
+                        </div>
+                        <div className={styles.playerSectionDetail}>
+                            <h4>Player Position:</h4>
+                            <h5>{player.position}</h5>
+                        </div>
+                        <div className={styles.playerSectionDetail}>
+                            <h4>Transaction ID:</h4>
+                            <h5>{player.transactionID}</h5>
+                        </div>
+                    </div>
+                )}
             </div>
-            {player && (
-                <div className={styles.playerSection}>
-                    <div className={styles.playerSectionDetail}>
-                        <h4>Player Name:</h4>
-                        <h5>{player.name}</h5>
-                    </div>
-                    <div className={styles.playerSectionDetail}>
-                        <h4>Start Price:</h4>
-                        <h5>{player.startPrice}</h5>
-                    </div>
-                    <div className={styles.playerSectionDetail}>
-                        <h4>Buy Now Price:</h4>
-                        <h5>{player.buyNowPrice}</h5>
-                    </div>
-                    <div className={styles.playerSectionDetail}>
-                        <h4>Player Rating:</h4>
-                        <h5>{player.rating}</h5>
-                    </div>
-                    <div className={styles.playerSectionDetail}>
-                        <h4>Player Position:</h4>
-                        <h5>{player.position}</h5>
-                    </div>
-                    <div className={styles.playerSectionDetail}>
-                        <h4>Transaction ID:</h4>
-                        <h5>{player.transactionID}</h5>
-                    </div>
-                </div>
-            )}
         </div>
     );
 };

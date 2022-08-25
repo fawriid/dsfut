@@ -3,12 +3,29 @@
     padding: 0;
     margin: 0;
 }
+.background {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    background-image: url(../pictures/FifaPic.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.content {
+    backdrop-filter: blur(30px);
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+}
 .parametersSec {
     width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 2rem auto;
+    margin-top: 0;
+    padding-top: 5rem;
 }
 .inputs {
     display: flex;
