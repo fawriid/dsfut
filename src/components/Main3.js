@@ -12,13 +12,13 @@ const Main3 = () => {
     const partner_id = "39190";
     const secret_key = "dbc52c17ffd1f43615b3c5125d8ed3eb";
 
-    // var cancelled = false;
-    const [cancelled, setCancelled] = useState(false);
+    var cancelled = true;
+    // var [cancelled, setCancelled] = useState(false);
 
-    function longRunningFunction() {
-        // if (cancelled) {
-        //     return;
-        // }
+    function catchingPlayer() {
+        if (cancelled) {
+            return;
+        }
 
         function unixTimestamp() {
             return Math.floor(Date.now() / 1000);
@@ -70,9 +70,9 @@ const Main3 = () => {
                 });
         }
 
-        if (!cancelled) {
+        if (true) {
             // release control, so that handlers can be called, and continue in 10ms
-            setTimeout(longRunningFunction, 1100);
+            setTimeout(catchingPlayer, 1100);
         }
     }
 
@@ -106,15 +106,18 @@ const Main3 = () => {
             <button
                 className={styles.btn}
                 onClick={() => {
-                    setCancelled(false);
-                    longRunningFunction();
+                    if (!cancelled) {
+                        return;
+                    }
+                    cancelled = false;
+                    catchingPlayer();
                 }}>
                 Start!
             </button>
             <br />
             <br />
             <br />
-            <button className={styles.btn} onClick={() => setCancelled(true)}>
+            <button className={styles.btn} onClick={() => (cancelled = true)}>
                 stop!
             </button>
             <br />
