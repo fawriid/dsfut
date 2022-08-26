@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MD5 } from "crypto-js";
 import axios from "axios";
 import styles from "../styles/Main3.module.css";
+import MessageTone from "../music/MessageTone.mp3";
 
 const Main3 = () => {
     const [player, setPlayer] = useState();
@@ -11,6 +12,8 @@ const Main3 = () => {
 
     const partner_id = "39190";
     const secret_key = "dbc52c17ffd1f43615b3c5125d8ed3eb";
+
+    const ringtone = new Audio(MessageTone);
 
     var cancelled = true;
     // var [cancelled, setCancelled] = useState(false);
@@ -40,6 +43,7 @@ const Main3 = () => {
                         console.log(res.data.error);
                     } else {
                         console.log(res.data.player);
+                        ringtone.play();
                         setPlayer(res.data.player);
                         cancelled = true;
                     }
@@ -71,7 +75,6 @@ const Main3 = () => {
         }
 
         if (true) {
-            // release control, so that handlers can be called, and continue in 10ms
             setTimeout(catchingPlayer, 1100);
         }
     }
