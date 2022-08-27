@@ -4,14 +4,14 @@ import axios from "axios";
 import styles from "../styles/Main3.module.css";
 import MessageTone from "../music/MessageTone.mp3";
 
-const Main3 = () => {
+const Main4 = () => {
     const [player, setPlayer] = useState();
     const [minBuy, setMinBuy] = useState();
     const [maxBuy, setMaxBuy] = useState();
     const [takeAfter, setTakeAfter] = useState();
 
-    const partner_id = "39450";
-    const secret_key = "ad293cf54676a312060cfc980b3ee361";
+    const partner_id = "39451";
+    const secret_key = "0f6ed1e8d4e031f01e97b9b377801d33";
 
     const ringtone = new Audio(MessageTone);
 
@@ -40,7 +40,7 @@ const Main3 = () => {
                 )
                 .then((res) => {
                     if (res.data.error) {
-                        console.log(res.data.error + " A 3");
+                        console.log(res.data.error + " A 4");
                     } else {
                         console.log(res.data.player);
                         ringtone.play();
@@ -65,7 +65,7 @@ const Main3 = () => {
                 )
                 .then((res) => {
                     if (res.data.error) {
-                        console.log(res.data.error + " A 3");
+                        console.log(res.data.error + " A 4");
                     } else {
                         console.log(res.data.player);
                         setPlayer(res.data.player);
@@ -155,4 +155,4 @@ const Main3 = () => {
     );
 };
 
-export default Main3;
+export default Main4;

@@ -3,28 +3,37 @@
     padding: 0;
     margin: 0;
 }
-.background {
-    width: 100%;
-    min-height: 100vh;
-    height: 100%;
-    background-image: url(../pictures/FifaPic.jpeg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.progressContainer {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    font-weight: bold;
 }
-.content {
-    backdrop-filter: blur(30px);
-    width: 100%;
-    min-height: 100vh;
-    height: 100%;
+.spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-top: 2px solid skyblue;
+    animation: spinner 1s infinite linear;
+}
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 .parametersSec {
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
     margin: 2rem auto;
     margin-top: 0;
     padding-top: 5rem;
@@ -57,7 +66,7 @@
     margin: 10px auto;
     border: 1px solid #ccc;
     border-radius: 15px;
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -78,10 +87,10 @@
 .btn:first-child {
     background-color: skyblue;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 .btn:last-child {
     background-color: red;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
