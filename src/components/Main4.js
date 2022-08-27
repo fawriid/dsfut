@@ -125,28 +125,28 @@ const Main4 = () => {
                 {player && (
                     <div className={styles.playerSection}>
                         <div className={styles.playerSectionDetail}>
-                            <h4>Player Name:</h4>
-                            <h5>{player.name}</h5>
+                            <h5>Player Name:</h5>
+                            <h4>{player.name}</h4>
                         </div>
                         <div className={styles.playerSectionDetail}>
-                            <h4>Start Price:</h4>
-                            <h5>{player.startPrice}</h5>
+                            <h5>Start Price:</h5>
+                            <h4>{player.startPrice}</h4>
                         </div>
                         <div className={styles.playerSectionDetail}>
-                            <h4>Buy Now Price:</h4>
-                            <h5>{player.buyNowPrice}</h5>
+                            <h5>Buy Now Price:</h5>
+                            <h4>{player.buyNowPrice}</h4>
                         </div>
                         <div className={styles.playerSectionDetail}>
-                            <h4>Player Rating:</h4>
-                            <h5>{player.rating}</h5>
+                            <h5>Player Rating:</h5>
+                            <h4>{player.rating}</h4>
                         </div>
                         <div className={styles.playerSectionDetail}>
-                            <h4>Player Position:</h4>
-                            <h5>{player.position}</h5>
+                            <h5>Player Position:</h5>
+                            <h4>{player.position}</h4>
                         </div>
                         <div className={styles.playerSectionDetail}>
-                            <h4>Transaction ID:</h4>
-                            <h5>{player.transactionID}</h5>
+                            <h5>Transaction ID:</h5>
+                            <h4>{player.transactionID}</h4>
                         </div>
                     </div>
                 )}
