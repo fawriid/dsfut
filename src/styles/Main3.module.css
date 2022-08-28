@@ -61,22 +61,22 @@
     gap: 1rem;
 }
 .playerSection {
-    min-width: 40%;
-    width: auto;
-    padding: 20px;
+    /* min-width: 40%; */
+    width: 90%;
     margin: 10px auto;
     border: 1px solid #ccc;
     border-radius: 15px;
-    padding: 0.5rem;
+    padding: 0.8rem 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 .playerSection h4 {
     font-weight: bold;
+    color: #fff;
 }
 .playerSection h5 {
-    color: #fff;
+    color: #000;
 }
 .playerSectionDetail {
     width: 100%;
@@ -85,13 +85,13 @@
     justify-content: space-between;
     align-items: center;
 }
-.playerSectionDetail:nth-child(2) {
-    color: rgb(149, 72, 222);
+.playerSectionDetail:nth-child(2) h4 {
+    color: rgb(132, 42, 215);
 }
-.playerSectionDetail:nth-child(3) {
-    color: rgb(48, 172, 48);
+.playerSectionDetail:nth-child(3) h4 {
+    color: rgb(11, 193, 11);
 }
-.playerSectionDetail:nth-child(4) {
+.playerSectionDetail:nth-child(4) h4 {
     color: brown;
 }
 .btn {

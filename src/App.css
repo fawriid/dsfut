@@ -12,7 +12,7 @@
     background-size: cover;
 }
 .content {
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(35px);
     width: 100%;
     min-height: 100vh;
     height: 100%;
